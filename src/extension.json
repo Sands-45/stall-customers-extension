@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/PoggoLLC/stall-extensions/refs/heads/main/schema/v1/schema.json",
+  "id": "customers",
+  "name": "Customers",
+  "description": "Extension for managing customers",
+  "keywords": ["customers", "clients", "users"],
+  "icon": "/assets/customer.svg",
+  "version": "0.0.1",
+  "authors": ["Stall"],
+  "repo": "https://github.com/stall/customers",
+  "homepage": "https://github.com/stallpos/customers",
+  "entrypoint": {
+    "id": "customers",
+    "type": "lookup"
+  },
+  "offline_ready": true
+}
