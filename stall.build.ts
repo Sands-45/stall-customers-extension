@@ -28,6 +28,7 @@ const external_modules = [
   "@use-stall/core",
   "react-router-dom",
   "zustand",
+  "uuid",
 ];
 const DEFAULT_SHARED_MODULES: SharedModule[] = (() =>
   external_modules.map((module) => ({
