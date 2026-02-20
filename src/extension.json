@@ -5,7 +5,7 @@
   "description": "Extension for managing customers",
   "keywords": ["customers", "clients", "users"],
   "icon": "/assets/customers.svg",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "authors": ["Stall"],
   "repo": "https://github.com/stall/customers",
   "homepage": "https://github.com/stallpos/customers",

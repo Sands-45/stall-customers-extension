@@ -21,7 +21,7 @@ export const LOOK_UP: ExtensionLookupGroup[] = [
     keys: {
       id: "id",
       image: "profile",
-      fallback: "./icons/customer.svg",
+      fallback: "./assets/customers.svg",
       title: { value: "{{first_name}} {{last_name}}", format: "string" },
       description: {
         value: "{{email}}",
