@@ -5,10 +5,10 @@
       "name": "customers",
       "devDependencies": {
         "@types/bun": "latest",
-        "@use-stall/core": "^0.1.6",
+        "@use-stall/core": "0.1.7",
         "@use-stall/icons": "^0.0.6",
         "@use-stall/types": "^0.3.6",
-        "@use-stall/ui": "0.1.7",
+        "@use-stall/ui": "^0.1.7",
         "chokidar": "^5.0.0",
         "dexie-react-hooks": "^4.2.0",
         "framer-motion": "^12.34.0",
