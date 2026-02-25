@@ -21,7 +21,7 @@ export const LOOK_UP: ExtensionLookupGroup[] = [
     keys: {
       id: "id",
       image: "profile",
-      fallback: "./icons/customers.svg",
+      fallback: "/icons/customers.svg",
       title: { value: "{{first_name}} {{last_name}}", format: "string" },
       description: {
         value: "{{email}}",
@@ -47,7 +47,10 @@ export const LOOK_UP: ExtensionLookupGroup[] = [
         reopen_on_return: true,
         run: ({ item, helpers }) => {
           if (!item) return;
-          helpers.navigate(to_page_path("/extensions/customers/view-customer", item));
+          helpers.navigate(
+            to_page_path("/extensions/customers/view-customer", item),
+            { replace: true },
+          );
         },
       },
       {

@@ -9,6 +9,7 @@ import {
   PhoneNumberInput,
 } from "@use-stall/ui";
 import type { UnifiedCustomerType } from "@use-stall/types";
+import { normalizePhoneToE164 } from "./utils";
 
 interface BasicDetailsProps {
   formdata: UnifiedCustomerType;
@@ -82,9 +83,9 @@ export const BasicDetails = ({ formdata, setFormdata }: BasicDetailsProps) => {
             <PhoneNumberInput
               id="phone"
               name="phone"
-              value={formdata.phone}
+              value={normalizePhoneToE164(formdata.phone)}
               onChange={(e: unknown) =>
-                setFormdata({ ...formdata, phone: e as string })
+                setFormdata({ ...formdata, phone: normalizePhoneToE164(e) })
               }
               placeholder="e.g. 012 345 6789"
               className="**:bg-main-background"

@@ -1,8 +1,7 @@
 import type { RuntimeProps } from "@use-stall/types";
-import { motion } from "framer-motion";
-import { PageTransitionVariants } from "@/constants/motion";
 import { useLiveQuery } from "dexie-react-hooks";
 import { local_db } from "@use-stall/core";
+import { Loader } from "@use-stall/ui";
 import React from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { delete_customer_service } from "@/services/customers.services";
@@ -45,22 +44,11 @@ const ViewCustomer = ({ stall }: RuntimeProps) => {
   };
 
   if (!customer) {
-    return (
-      <div className="h-full w-full flex items-center justify-center p-5">
-        <p className="text-muted-foreground">Loading customer details...</p>
-      </div>
-    );
+    return <Loader />;
   }
 
   return (
-    <motion.div
-      variants={PageTransitionVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      key="view-customer"
-      className="h-full w-full overflow-hidden overflow-y-auto p-5 flex justify-center"
-    >
+    <div className="h-full w-full overflow-hidden overflow-y-auto p-5 flex justify-center">
       <div className="w-full max-w-2xl min-h-full h-fit pb-6 relative">
         <Header loading={loading} customer={customer} />
 
@@ -93,7 +81,7 @@ const ViewCustomer = ({ stall }: RuntimeProps) => {
           <DangerZone loading={loading} onDelete={handleDelete} />
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

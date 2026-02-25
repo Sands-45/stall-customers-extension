@@ -1,7 +1,7 @@
 {
   "name": "customers",
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "unpkg": "dist/index.js",
@@ -18,7 +18,7 @@
     "@use-stall/core": "^0.1.6",
     "@use-stall/icons": "^0.0.6",
     "@use-stall/types": "^0.3.6",
-    "@use-stall/ui": "^0.1.4",
+    "@use-stall/ui": "^0.1.7",
     "chokidar": "^5.0.0",
     "dexie-react-hooks": "^4.2.0",
     "framer-motion": "^12.34.0",

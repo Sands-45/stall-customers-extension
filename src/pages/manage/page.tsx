@@ -1,8 +1,6 @@
-import { motion } from "framer-motion";
 import type { RuntimeProps, UnifiedCustomerType } from "@use-stall/types";
 import React from "react";
 import { UnifiedCustomerAddressModel } from "@/models/customers";
-import { PageTransitionVariants } from "@/constants/motion";
 import { local_db } from "@use-stall/core";
 import { toast } from "sonner";
 import {
@@ -10,7 +8,7 @@ import {
   update_customer_service,
 } from "@/services/customers.services";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getInitialFormData } from "./utils";
+import { getInitialFormData, normalizeCustomerPhoneFields } from "./utils";
 import { Header } from "./header";
 import { BasicDetails } from "./basic-details";
 import { AddressFields } from "./address-fields";
@@ -21,9 +19,10 @@ const ManageCustomer = ({ stall }: RuntimeProps) => {
   const customer = location.state as UnifiedCustomerType;
 
   const [loading, setLoading] = React.useState<boolean>(false);
-  const [formdata, setFormdata] = React.useState<UnifiedCustomerType>(() =>
-    customer?.id ? customer : getInitialFormData(),
-  );
+  const [formdata, setFormdata] = React.useState<UnifiedCustomerType>(() => {
+    const initialData = customer?.id ? customer : getInitialFormData();
+    return normalizeCustomerPhoneFields(initialData);
+  });
 
   const handleAddressFieldChange = (
     type: "billing_address" | "shipping_address",
@@ -67,7 +66,9 @@ const ManageCustomer = ({ stall }: RuntimeProps) => {
       ? create_customer_service
       : update_customer_service;
 
-    toast.promise(mutate(formdata, stall), {
+    const normalizedFormData = normalizeCustomerPhoneFields(formdata);
+
+    toast.promise(mutate(normalizedFormData, stall), {
       loading: "Saving changes...",
       success: (data) => {
         setLoading(false);
@@ -85,12 +86,7 @@ const ManageCustomer = ({ stall }: RuntimeProps) => {
   };
 
   return (
-    <motion.div
-      variants={PageTransitionVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      key="orders"
+    <div
       className="h-full w-full overflow-hidden overflow-y-auto p-5 flex justify-center"
     >
       <form
@@ -128,7 +124,7 @@ const ManageCustomer = ({ stall }: RuntimeProps) => {
           />
         </div>
       </form>
-    </motion.div>
+    </div>
   );
 };
 

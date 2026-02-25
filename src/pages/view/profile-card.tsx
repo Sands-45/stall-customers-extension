@@ -11,9 +11,9 @@ export const ProfileCard = ({
 }) => {
   return (
     <Card className="w-full shadow-none flex items-center p-5 gap-4 overflow-hidden">
-      <div className="rounded-10 overflow-hidden p-2 shrink-0 size-20 bg-accent">
+      <div className="rounded-xl overflow-hidden shrink-0 size-20 bg-accent">
         <img
-          src="/images/default_profile.png"
+          src="/icons/customers.svg"
           alt="avatar"
           className="w-full h-full"
         />
